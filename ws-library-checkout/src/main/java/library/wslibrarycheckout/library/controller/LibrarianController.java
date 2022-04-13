@@ -1,5 +1,6 @@
 package library.wslibrarycheckout.library.controller;
 
+import io.swagger.annotations.ApiOperation;
 import library.wslibrarycheckout.library.entity.Book;
 import library.wslibrarycheckout.library.entity.Librarian;
 import library.wslibrarycheckout.library.service.LibrarianService;
@@ -18,6 +19,7 @@ public class LibrarianController {
 
 
     @PostMapping
+    @ApiOperation(value = "Add Librarian")
     public Librarian addLibrarian(@RequestBody Librarian librarian){
 
         return librarianService.addLibrarian(librarian);
