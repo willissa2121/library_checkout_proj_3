@@ -4,8 +4,10 @@ import library.wslibrarycheckout.library.entity.Book;
 import library.wslibrarycheckout.library.model.BookDTO;
 import library.wslibrarycheckout.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +21,9 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/addBook")
-    public Book addBook(@RequestBody Book book){
+    public ResponseEntity<Object> addBook(@RequestBody @Valid Book book){
 
-
-        return bookService.addBook(book);
+      return  bookService.addBook(book);
     }
 
     @GetMapping("/{id}")

@@ -4,14 +4,16 @@ import library.wslibrarycheckout.library.dao.AuthorRepository;
 import library.wslibrarycheckout.library.dao.BookRepository;
 import library.wslibrarycheckout.library.entity.Author;
 import library.wslibrarycheckout.library.entity.Book;
+import library.wslibrarycheckout.library.exceptionhandling.Response;
 import library.wslibrarycheckout.library.model.BookDTO;
 import library.wslibrarycheckout.library.exceptionhandling.CannotBeFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,10 +25,19 @@ public class BookService {
     @Autowired
     private AuthorRepository authorRepository;
 
-    public Book addBook(Book book) {
+    public ResponseEntity<Object> addBook(Book book) {
+        Response<Book> resp;
+        Set result = new HashSet();
 
         authorRepository.save(book.getAuthor());
-        return  bookRepository.save(book);
+
+        if(bookRepository.save(book) != null){
+            result.add(book);
+            resp = new Response<>("Book Added ", true, new Date(), HttpStatus.CREATED, result);
+        } else {
+            resp = new Response<>("Book could not be Added ", true, new Date(), HttpStatus.CREATED, result);
+        }
+        return new ResponseEntity(resp, resp.getHttpStatus());
     }
 
     public Book removeBookById(int bookId) {
