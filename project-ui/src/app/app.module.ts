@@ -8,6 +8,7 @@ import { LocationComponent } from './location/location.component';
 import { BooklistComponent } from './booklist/booklist.component';
 import { AdminComponent } from './admin/admin.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     LocationComponent,
     BooklistComponent,
     AdminComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
