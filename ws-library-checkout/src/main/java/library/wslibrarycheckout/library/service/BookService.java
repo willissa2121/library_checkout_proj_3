@@ -83,4 +83,8 @@ public class BookService {
 
         return bookForAuthor;
     }
+
+    public List<Book> getAllBooksbookDTO() {
+        return bookRepository.findAll();
+    }
 }
