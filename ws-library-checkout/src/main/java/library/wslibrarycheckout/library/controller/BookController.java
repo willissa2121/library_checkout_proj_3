@@ -17,7 +17,8 @@ import java.util.Optional;
 @RequestMapping("/books")
 @Api(value = "Books", description = "Operations pertaining to Books")
 //this was to fix the cors issue for ui on my local
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+//@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "http://localhost:4200")
 public class BookController {
 
     @Autowired
@@ -52,5 +53,11 @@ public class BookController {
     @PostMapping("/author")
     public List<Book> getBookForAuthor( @RequestBody BookDTO bookDTO){
         return bookService.getBookByAuthorId(bookDTO.getAuthorFullName());
+    }
+
+    @ApiOperation(value = "Get all books in the library ")
+    @GetMapping
+    public List<Book> getAllBooks(){
+        return bookService.getAllBooksbookDTO();
     }
 }

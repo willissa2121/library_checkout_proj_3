@@ -44,3 +44,7 @@ ul.commalist {
     max-width:90%;
     margin:10px;
   }
+
+  table {
+    width: 100%;
+  }
