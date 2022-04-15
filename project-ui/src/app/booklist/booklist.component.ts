@@ -36,7 +36,6 @@ export class BooklistComponent implements OnInit {
      this.bookService.getAllBooks().subscribe(res =>{
        this.allBooks = res;
        this.dataSource = this.allBooks;
-       console.log('this is the datasource--->', this.dataSource)
      })
   }
 
