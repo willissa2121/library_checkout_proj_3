@@ -1,5 +1,11 @@
---INSERT INTO author ( ID,ISBN, FIRST_NAME, LAST_NAME, EMAIL) VALUES (1, 'subashisbn', 'subash','kharel','subash@gmail.com');
---INSERT INTO author ( ID,ISBN, FIRST_NAME, LAST_NAME, EMAIL) VALUES (2, 'scottisbn', 'scott','willis','scott@gmail.com');
---INSERT INTO author ( ID,ISBN, FIRST_NAME, LAST_NAME, EMAIL) VALUES (3, 'prestonisbn', 'preston','kelly','preston@gmail.com');
 
-select * from author
+
+INSERT INTO AUTHOR(ID, EMAIL, FULL_NAME, ISBN) VALUES (1, 'author@gmail.com', 'Sipser sipser', null)
+INSERT INTO AUTHOR(ID, EMAIL, FULL_NAME, ISBN) VALUES (2, 'author2@gmail.com', 'William Shakespeare', null)
+INSERT INTO AUTHOR(ID, EMAIL, FULL_NAME, ISBN) VALUES (3, 'author3@gmail.com', 'Agatha Christie', null)
+INSERT INTO AUTHOR(ID, EMAIL, FULL_NAME, ISBN) VALUES (4, 'author4@gmail.com', 'Robert Kiyosaki', null)
+
+INSERT INTO BOOK (ID, AUTHOR_EMAIL, AVAILABILTY, EDITION, EXPECTED_RETURN_DATE, ISBN, NAME, AUTHOR_ID) VALUES(1, 'author@gmail.com', 'OVERDUE', 'First ED', '2022-04-12', '1231231231nnn123', 'SIPSER', 1)
+INSERT INTO BOOK (ID, AUTHOR_EMAIL, AVAILABILTY, EDITION, EXPECTED_RETURN_DATE, ISBN, NAME, AUTHOR_ID) VALUES(2, 'author1@gmail.com', 'AVAILABLE', 'Second ED', '2022-04-12', '12sdfsdfsdf', 'Hamlet', 2)
+INSERT INTO BOOK (ID, AUTHOR_EMAIL, AVAILABILTY, EDITION, EXPECTED_RETURN_DATE, ISBN, NAME, AUTHOR_ID) VALUES(3, 'autho2r@gmail.com', 'AVAILABLE', 'Firth ED', '2022-04-12', '123sdfsdfsdfn123', 'Death on the Nile', 3)
+INSERT INTO BOOK (ID, AUTHOR_EMAIL, AVAILABILTY, EDITION, EXPECTED_RETURN_DATE, ISBN, NAME, AUTHOR_ID) VALUES(4, 'author3@gmail.com', 'OVERDUE', 'First ED', '2022-04-12', 'sdfsdfsdfsdf', 'Rich Dad', 4)
