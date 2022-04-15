@@ -3,6 +3,7 @@ package library.wslibrarycheckout.library.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -22,7 +23,9 @@ public class Registration {
     @NotNull
     @NotEmpty
     @Email
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String userName;
     private String password;
 

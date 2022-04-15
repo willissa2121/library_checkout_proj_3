@@ -33,12 +33,10 @@ export class LoginComponent implements OnInit {
   registerUser(){
 
     this.loginService.registerUser(this.form.value)
-    console.log("registered with these values--->", this.form.value)
   }
 
   login(){
     this.loginService.login(this.loginForm.value)
-    console.log("this are log in creds--->", this.loginForm.value)
   }
 
 
