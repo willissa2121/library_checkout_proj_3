@@ -41,3 +41,50 @@ p{
     width: auto;
     margin:25px;
 }
+
+
+.full-width{
+  width: 100%;
+}
+
+.top-padding{
+  padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child){
+  margin-left:10px;
+}
+
+.form-container{
+  margin: 100px;
+}
+
+.invalid{
+  color:#f44336;
+}
+.small-font{
+  font-size: 12px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
+}
+
+.border-register {
+  display: inline-block;
+    margin-top: -9px;
+    border: solid;
+    background-color: darkslategray;
+    width: 72%;
+}
