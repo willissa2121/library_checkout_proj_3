@@ -18,7 +18,9 @@ export class LoginService {
       alert(respParseJson.message[0])
     },
     (error) => {
-      alert("Invalid Form Entry");
+      let errorObj = error.error
+      console.log(errorObj)
+      alert(errorObj.message);
     }
    )
   }
@@ -31,7 +33,9 @@ export class LoginService {
         alert(respParseJson.message[0])
       },
       (error) => {
-        alert("Invalid Credential!");
+        let errorObj = error.error
+        console.log(errorObj)
+        alert(errorObj.message);
       }
     )
   }
