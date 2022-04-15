@@ -23,10 +23,10 @@ public class RegistrationService {
 
     public ResponseEntity<Object> register(Registration registration) {
 
-        Response<Book> resp;
+        Response<Object> resp;
         Set result = new HashSet();
         if(registrationRepository.save(registration) != null){
-            result.add(registration);
+            result.add(registration.getUserName());
             resp = new Response<>("User Registered ", true, new Date(), HttpStatus.CREATED, result);
         } else {
             resp = new Response<>("User could not be Registered ", true, new Date(), HttpStatus.CREATED, result);
@@ -41,6 +41,7 @@ public class RegistrationService {
         Set result = new HashSet();
         Registration registeredUserById = registrationRepository.getByUserName(logInDTO.getUserName());
         if(registeredUserById != null) {
+            result.add(logInDTO.getUserName());
             if(registeredUserById.getUserName().equals(userName) && registeredUserById.getPassword().equals(password)) {
                 resp =new Response<>("Logged In ", true, new Date(), HttpStatus.CREATED, result);
             }

@@ -5,7 +5,9 @@
   We hope you enjoy the future books you will read.
 </p>
 
-<div class="row" style="width:auto; margin:auto;">
+<div class="row" style="width:auto; margin:auto; display:inline-flex">
+
+  <!-- <div>
 <fieldset title="Sign in" class="col">
   <legend>Sign In:</legend>
     <label for="username"><b>Username:</b></label>
@@ -14,7 +16,9 @@
     <input type="password" name="password" class="formField"/><br/><br/>
     <input type="submit" value="Sign In">
 </fieldset>
-<fieldset title="Register">
+</div> -->
+
+<!-- <fieldset title="Register">
   <legend>Register:</legend>
     <label for="username"><b>Username:</b></label>
     <input type="text" name="username" class="formField"/><br/>
@@ -40,5 +44,74 @@
 
 
     <input type="submit" value="Register">
-</fieldset>
+</fieldset> -->
+
+<div>
+  <form [formGroup]="loginForm" #ngForm="ngForm" class="form-container width-1 border-register" appearance="outline" id="specific-border">
+    <p>Login</p>
+    <mat-card>
+  
+      <mat-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <input formControlName="userName" matInput placeholder="UserName">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <input formControlName="password" matInput placeholder="Password">
+            </mat-form-field>
+          </div>
+
+        </div>
+  
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button (click)="login()" mat-raised-button color="primary">Login</button>
+      </mat-card-actions>
+  
+    </mat-card>
+  </form>
+  </div>
+  
+
+<div>
+<form [formGroup]="form" #ngForm="ngForm" class="form-container width-1 border-register" appearance="outline" id="specific-border">
+  <p>Register Here</p>
+  <mat-card>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="email" matInput placeholder="Email">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="userName" matInput placeholder="user name">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="password" matInput placeholder="password">
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button (click)="registerUser()" mat-raised-button color="primary">Register</button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>
+</div>
+
+
+
 </div>
