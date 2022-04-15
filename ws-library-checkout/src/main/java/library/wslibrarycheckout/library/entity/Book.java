@@ -35,6 +35,7 @@ public class Book {
 
     private Date expectedReturnDate;
     @NotNull
+    @Column(unique = true)
     private String isbn;
 
     @ManyToOne

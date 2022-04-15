@@ -14,11 +14,27 @@ export class BooklistComponent implements OnInit {
   displayedColumns: any =[];
   allBooks: Object = []
 
- columnNames = [{
+ columnNames = [
+   {
   id: 'Book',
   value: 'Book.',
 
-}, {
+},   {
+  id: 'ISBN',
+  value: 'ISBN.',
+
+},
+{
+  id: 'Edition',
+  value: 'Edition.',
+
+},
+{
+  id: 'Expected Return Date',
+  value: 'Expected Return Date.',
+
+}
+, {
   id: 'Author',
   value: 'Author',
 },

@@ -3,31 +3,34 @@
 <p>View all books that currently are registerd to the database of BearBooks. For those who are registed, you can checkout the books
   you are interested in from this page.
 </p>
-<!-- 
-<p style="font-weight: bold; color:red;">
-  Currently, the functionality on this page has not been implemented. The table is acting as a placeholder. This will need to be fixed
-  once after the backend is integrated.
-</p> -->
-
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
   <ng-container matColumnDef="Book">
     <th mat-header-cell *matHeaderCellDef> Book </th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <ng-container matColumnDef="ISBN">
+    <th mat-header-cell *matHeaderCellDef> ISBN </th>
+    <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Edition">
+    <th mat-header-cell *matHeaderCellDef> Edition </th>
+    <td mat-cell *matCellDef="let element"> {{element.edition}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Expected Return Date">
+    <th mat-header-cell *matHeaderCellDef> Expected Return Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.expectedReturnDate}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="Author">
     <th mat-header-cell *matHeaderCellDef> Author </th>
     <td mat-cell *matCellDef="let element"> {{element.author.fullName}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
   <ng-container matColumnDef="Available">
     <th mat-header-cell *matHeaderCellDef> Available </th>
     <td mat-cell *matCellDef="let element"> {{element.availabilty}} </td>
