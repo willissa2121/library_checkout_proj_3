@@ -25,54 +25,50 @@
     <input type="submit" value="Add" style="width:24%">
 </form>
 
-<p>To update exsisting records, use the table below.</p>
+<p style="font-size: 24px;">To update exsisting records, use the table below.</p>
 <table style="width:100%; border:1px solid black; text-align: center;">
-  <tr>
-    <th style="border:1px solid black; text-align: center;">Book</th>
-    <th style="border:1px solid black; text-align: center;">Author</th>
-    <th style="border:1px solid black; text-align: center;">Update</th>
-    <th style="border:1px solid black; text-align: center;">Delete</th>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #1</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #2</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #3</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #4</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #5</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #6</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-  <tr>
-    <td style="border:1px solid black; text-align: center;">Harry Potter #7</td>
-    <td style="border:1px solid black; text-align: center;">J.k. Rowling</td>
-    <td style="border:1px solid black; text-align: center;">TODO UPDATE</td>
-    <td style="border:1px solid black; text-align: center;">TODO DELETE</td>
-  </tr>
-</table>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%; border:1px solid black; text-align: center;">
+
+    <ng-container matColumnDef="Book">
+      <th mat-header-cell *matHeaderCellDef> Book </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ISBN">
+      <th mat-header-cell *matHeaderCellDef> ISBN </th>
+      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Edition">
+      <th mat-header-cell *matHeaderCellDef> Edition </th>
+      <td mat-cell *matCellDef="let element"> {{element.edition}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Expected Return Date">
+      <th mat-header-cell *matHeaderCellDef> Expected Return Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.expectedReturnDate}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Author">
+      <th mat-header-cell *matHeaderCellDef> Author </th>
+      <td mat-cell *matCellDef="let element"> {{element.author.fullName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Available">
+      <th mat-header-cell *matHeaderCellDef> Available </th>
+      <td mat-cell *matCellDef="let element"> {{element.availabilty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let row"><button mat-raised-button color="primary">Edit</button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let row"><button mat-raised-button color="primary">Delete</button> </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
