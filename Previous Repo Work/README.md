@@ -4,8 +4,8 @@ This is the previous work that we have completed regarding this project. Unfortu
 
 #### The Previous Repos Location
 
-This is the address for [Repo 1](https://github.com/willissa2121/library_checkout_proj).
-And this the addres for [Repo 2](https://github.com/willissa2121/library_checkout_proj_2).
+This is the address for [Repo 1](https://github.com/willissa2121/library_checkout_proj) 
+and this the addres for [Repo 2](https://github.com/willissa2121/library_checkout_proj_2).
 
 #### Setup of this directory
 
