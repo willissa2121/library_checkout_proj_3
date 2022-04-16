@@ -7,15 +7,17 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookDTO {
+public class BookUpdateResponseDTO {
 
+    private String name;
+    private String isbn;
+    private String edition;
+    private Date expectedReturnDate;
+    private String author;
     private Availability availability;
 
-    private Date expectedReturnDate;
 
-    private String authorFullName;
 }

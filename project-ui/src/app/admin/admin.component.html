@@ -29,24 +29,37 @@
 <table style="width:100%; border:1px solid black; text-align: center;">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%; border:1px solid black; text-align: center;">
 
+
     <ng-container matColumnDef="Book">
-      <th mat-header-cell *matHeaderCellDef> Book </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <th mat-header-cell *matHeaderCellDef> Book </th>      
+        <td  mat-cell *matCellDef="let element">
+          <div>{{element.name}}</div>
+         </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="ISBN">
-      <th mat-header-cell *matHeaderCellDef> ISBN </th>
-      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+      <th mat-header-cell *matHeaderCellDef> ISBN </th>      
+        <td  mat-cell *matCellDef="let element">
+          <div>{{element.isbn}}</div>
+         </td>
     </ng-container>
-  
+
+
     <ng-container matColumnDef="Edition">
-      <th mat-header-cell *matHeaderCellDef> Edition </th>
-      <td mat-cell *matCellDef="let element"> {{element.edition}} </td>
+      <th mat-header-cell *matHeaderCellDef> Edition </th>      
+        <td  mat-cell *matCellDef="let element">
+          <div >{{element.edition}}</div>
+          <!-- <div *ngIf="isEdit"><input  type="text" value=" {{element.edition}} "></div> -->
+         </td>
     </ng-container>
   
     <ng-container matColumnDef="Expected Return Date">
-      <th mat-header-cell *matHeaderCellDef> Expected Return Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.expectedReturnDate}} </td>
+      <th mat-header-cell *matHeaderCellDef> Expected Return Date </th>      
+        <td  mat-cell *matCellDef="let element">
+          <div>{{element.expectedReturnDate}}</div>
+          <!-- <div *ngIf="isEdit"><input  type="text" value=" {{element.expectedReturnDate}} "></div> -->
+
+         </td>
     </ng-container>
   
     <ng-container matColumnDef="Author">
@@ -54,14 +67,29 @@
       <td mat-cell *matCellDef="let element"> {{element.author.fullName}} </td>
     </ng-container>
   
+
     <ng-container matColumnDef="Available">
-      <th mat-header-cell *matHeaderCellDef> Available </th>
-      <td mat-cell *matCellDef="let element"> {{element.availabilty}} </td>
+      <th mat-header-cell *matHeaderCellDef> Available </th>      
+        <td  mat-cell *matCellDef="let element">
+          <div>{{element.availability}}</div>
+          <!-- <div *ngIf="isEdit"><input  type="text" value=" {{element.availabilty}} "></div> -->
+
+         </td>
     </ng-container>
+
 
     <ng-container matColumnDef="Edit">
       <th mat-header-cell *matHeaderCellDef> Edit </th>
-      <td mat-cell *matCellDef="let row"><button mat-raised-button color="primary" >Edit</button> </td>
+      <td mat-cell *matCellDef="let row">
+        <!-- <div *ngIf="!isEdit" >
+          <button mat-raised-button color="primary" (click)="editEnable()" >Edit</button>
+        </div> -->
+
+        <div >
+          <button mat-raised-button color="primary" (click)="openDialog(row)" >Update</button>
+        </div>
+
+       </td>
     </ng-container>
 
     <ng-container matColumnDef="Delete">

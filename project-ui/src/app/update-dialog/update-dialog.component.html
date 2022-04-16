@@ -1,0 +1,29 @@
+
+
+  <div class=" .border-register " >
+    <h1>Update Book</h1>
+    <form [formGroup] = "formdata" (ngSubmit) = "updateBook(formdata.value)" >
+       <input type = "text" class = "fortextbox" name = "name" placeholder = "name" 
+          formControlName="name">
+       <br/>
+       <input type = "text" class = "fortextbox" name = "isbn" placeholder = "ISBN" 
+       formControlName="isbn">
+    <br/>
+    <input type = "text" class = "fortextbox" name = "edition" placeholder = "Edition" 
+    formControlName="edition">
+ <br/>
+ <input type = "text" class = "fortextbox" name = "expectedReturnDate" placeholder = "ExpectedReturnDate" 
+ formControlName="expectedReturnDate">
+<br/>
+<input type = "text" class = "fortextbox" name = "author" placeholder = "Author" 
+formControlName="author">
+<br/>
+<input type = "text" class = "fortextbox" name = "availability" placeholder = "Availability" 
+formControlName="availability">
+<br/>
+
+<input type = "submit" class = "forsubmit" value = "Update">
+       
+
+    </form>
+ </div>
