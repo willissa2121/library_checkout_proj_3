@@ -50,6 +50,16 @@ public class BookService {
         return null;
     }
 
+    public Book removeBookByISBN(String isbn) {
+        Optional<Book> mayBeBook = bookRepository.findByIsbn(isbn);
+        if(mayBeBook.isPresent()){
+            bookRepository.delete(mayBeBook.get());
+        } else {
+            throw new CannotBeFoundException("Book with id" + " "+ " cannot be found");
+        }
+        return null;
+    }
+
     public Optional<Book> getBookById(int bookId) {
 
         Optional<Book> mayBeBook = bookRepository.findById(bookId);

@@ -10,6 +10,7 @@ import { BookService } from '../services/book.service';
 export class BooklistComponent implements OnInit {
 
   
+  
   dataSource: any;
   displayedColumns: any =[];
   allBooks: Object = []
@@ -60,5 +61,7 @@ export class BooklistComponent implements OnInit {
       this.allBooks = res
     })
   }
+
+
 
 }

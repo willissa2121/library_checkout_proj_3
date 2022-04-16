@@ -17,6 +17,7 @@ import {MatTableModule} from '@angular/material/table';
 import { NgMaterialModule } from './ng-material/ng-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     BrowserAnimationsModule,
     MatTableModule,
     NgMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: 'catalogue', component: BooklistComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],

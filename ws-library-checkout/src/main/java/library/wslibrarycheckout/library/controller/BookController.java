@@ -43,6 +43,13 @@ public class BookController {
         return bookService.removeBookById(bookId);
     }
 
+    @DeleteMapping("/isbn/{id}")
+    @ApiOperation(value = "Delete operation to remove book by isbn ")
+    public Book removeBookByISBN(@PathVariable("id") String isbn){
+        return bookService.removeBookByISBN(isbn);
+    }
+
+
     @PutMapping("/updateBook/{id}")
     @ApiOperation(value = "Update operation to edit book by id ")
     public Book updateBook(@PathVariable("id") int bookId, @RequestBody BookDTO bookDTO) {
