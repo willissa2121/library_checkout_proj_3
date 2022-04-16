@@ -77,7 +77,7 @@ export class AdminComponent implements OnInit {
     console.log(JSON.stringify(isbn))
     return this.bookService.deleteBook(isbn).subscribe(res => {
       console.log("got deleted");
-      this.ngOnInit()
+      this.ngOnInit();
     })
   }
 
