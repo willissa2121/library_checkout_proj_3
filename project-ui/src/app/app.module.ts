@@ -18,6 +18,8 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
+import { AddDialogComponent } from './add-dialog/add-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RouterModule } from '@angular/router';
     CheckoutComponent,
     LoginComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdateDialogComponent,
+    AddDialogComponent
   ],
   imports: [
     BrowserModule,

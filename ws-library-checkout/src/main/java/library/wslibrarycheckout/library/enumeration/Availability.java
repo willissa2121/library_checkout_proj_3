@@ -1,7 +1,7 @@
 package library.wslibrarycheckout.library.enumeration;
 
 
-public enum Availabilty {
+public enum Availability {
     AVAILABLE, OVERDUE
 
 }

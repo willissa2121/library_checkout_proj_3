@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import library.wslibrarycheckout.library.entity.Book;
 import library.wslibrarycheckout.library.model.BookDTO;
+import library.wslibrarycheckout.library.model.BookUpdateResponseDTO;
 import library.wslibrarycheckout.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -66,5 +67,11 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks(){
         return bookService.getAllBooksbookDTO();
+    }
+
+    @ApiOperation(value = "update book by ISBN  ")
+    @PutMapping("isbn/{id}")
+    public BookUpdateResponseDTO updateBookByIsbn(@PathVariable("id") String isbn, @RequestBody BookUpdateResponseDTO book){
+        return bookService.updateBookByIsbn(isbn, book);
     }
 }

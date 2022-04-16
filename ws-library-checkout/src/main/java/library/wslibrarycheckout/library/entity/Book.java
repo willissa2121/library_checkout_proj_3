@@ -1,7 +1,7 @@
 package library.wslibrarycheckout.library.entity;
 
 
-import library.wslibrarycheckout.library.enumeration.Availabilty;
+import library.wslibrarycheckout.library.enumeration.Availability;
 import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -31,7 +31,7 @@ public class Book {
     private String edition;
 
     @Enumerated(EnumType.STRING)
-    private Availabilty availabilty;
+    private Availability availability;
 
     private Date expectedReturnDate;
     @NotNull

@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatListModule} from '@angular/material/list';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -34,7 +34,8 @@ import { MatListModule} from '@angular/material/list';
         MatRadioModule,
         MatButtonModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
+        MatDialogModule
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA

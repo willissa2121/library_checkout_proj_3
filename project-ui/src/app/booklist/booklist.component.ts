@@ -58,7 +58,7 @@ export class BooklistComponent implements OnInit {
 
   getAllBooks() {
     return this.bookService.getAllBooks().subscribe(res =>{
-      this.allBooks = res
+      this.allBooks = res;
     })
   }
 

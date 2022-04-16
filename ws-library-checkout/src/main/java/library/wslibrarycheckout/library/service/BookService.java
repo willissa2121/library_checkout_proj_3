@@ -7,6 +7,7 @@ import library.wslibrarycheckout.library.entity.Book;
 import library.wslibrarycheckout.library.exceptionhandling.Response;
 import library.wslibrarycheckout.library.model.BookDTO;
 import library.wslibrarycheckout.library.exceptionhandling.CannotBeFoundException;
+import library.wslibrarycheckout.library.model.BookUpdateResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -75,7 +76,7 @@ public class BookService {
         Optional<Book> mayBeBook = bookRepository.findById(bookId);
 
         if(mayBeBook.isPresent()){
-           mayBeBook.get().setAvailabilty(bookDTO.getAvailability());
+           mayBeBook.get().setAvailability(bookDTO.getAvailability());
            mayBeBook.get().setExpectedReturnDate((bookDTO.getExpectedReturnDate()));
            bookRepository.save(mayBeBook.get());
         } else {
@@ -96,5 +97,24 @@ public class BookService {
 
     public List<Book> getAllBooksbookDTO() {
         return bookRepository.findAll();
+    }
+
+    public BookUpdateResponseDTO updateBookByIsbn(String isbn, BookUpdateResponseDTO book) {
+
+        Optional<Book> mayBeBook = bookRepository.findByIsbn(isbn);
+        BookUpdateResponseDTO bookUpdateResponseDTO = new BookUpdateResponseDTO();
+        if(mayBeBook.isPresent()){
+           mayBeBook.get().setAvailability(book.getAvailability());
+           mayBeBook.get().setExpectedReturnDate(book.getExpectedReturnDate());
+           mayBeBook.get().setEdition(book.getEdition());
+
+            bookRepository.save(mayBeBook.get());
+           bookUpdateResponseDTO.setAvailability(book.getAvailability());
+           bookUpdateResponseDTO.setExpectedReturnDate(book.getExpectedReturnDate());
+           bookUpdateResponseDTO.setEdition(book.getEdition());
+        } else {
+            throw new CannotBeFoundException("Book with id" + " "+ " cannot be found");
+        }
+        return bookUpdateResponseDTO;
     }
 }

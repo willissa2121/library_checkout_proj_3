@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { BehaviorSubject, elementAt } from 'rxjs';
 import { BookService } from '../services/book.service';
+import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 @Component({
   selector: 'app-admin',
@@ -9,11 +11,12 @@ import { BookService } from '../services/book.service';
 })
 export class AdminComponent implements OnInit {
 
-  // public pageRefreshHelper: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   dataSource: any;
   displayedColumns: any =[];
   allBooks: Object = []
+  isEdit :any = false;
+  
 
  columnNames = [
    {
@@ -41,7 +44,7 @@ export class AdminComponent implements OnInit {
 },
   {
     id: 'Available',
-    value: 'Availbale',
+    value: 'Available',
   },
   {
     id: 'Edit',
@@ -54,7 +57,7 @@ export class AdminComponent implements OnInit {
 ];
 
   constructor(
-    private bookService: BookService
+    private bookService: BookService,  private changeDetectorRefs: ChangeDetectorRef, public dialog: MatDialog
     
   ) { 
   }
@@ -67,6 +70,19 @@ export class AdminComponent implements OnInit {
      })
   }
 
+  openDialog(book: any): void {
+    const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      width: '450px',
+      data: {book},
+    });
+
+    console.log("data passed to dialog---->", dialogRef)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+
   getAllBooks() {
     return this.bookService.getAllBooks().subscribe(res =>{
       this.allBooks = res
@@ -76,8 +92,19 @@ export class AdminComponent implements OnInit {
   deleteBook(isbn:any) {
     console.log(JSON.stringify(isbn))
     return this.bookService.deleteBook(isbn).subscribe(res => {
-      console.log("got deleted");
       this.ngOnInit();
+    })
+  }
+
+  editEnable() {
+    this.isEdit = true;
+  }
+
+
+  updateBook(isbn:any, book: any){
+    return this.bookService.updateBook(isbn, book).subscribe(resp =>{
+      this.isEdit = false;
+      this.allBooks = resp;
     })
   }
 

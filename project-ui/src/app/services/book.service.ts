@@ -18,4 +18,9 @@ export class BookService {
   deleteBook(isbn:any) {
     return this.http.delete(`http://localhost:8080/books/isbn/${isbn}`);
   }
+
+  updateBook(isbn:any, book:any) {
+    console.log("this is book in service -->",JSON.stringify(book) )
+    return this.http.put(`http://localhost:8080/books/isbn/${isbn}`,book);
+  }
 }
