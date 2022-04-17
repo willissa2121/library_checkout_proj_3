@@ -4,9 +4,9 @@ This is the group project for the Online Software Engineering Class for Baylor's
 
 ### Contributors
 
-Preston Kelly
-Subash Kharel
-Scott Willis
+Preston Kelly <br>
+Subash Kharel <br>
+Scott Willis <br>
 
 #### Project Concept
 
