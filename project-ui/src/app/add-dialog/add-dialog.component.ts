@@ -3,24 +3,10 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BookService } from '../services/book.service';
+import { SnackbarService } from '../snackbar.service';
 import { DialogData } from '../update-dialog/update-dialog.component';
 
-// export class Book {
-//   name: string;
-//   authorEmail: string;
-//   edition: string;
-//   availability: string;
-//   expectedReturnDate: Date;
-//   isbn: string;
-//   author: Author;
 
-
-// }
-
-// export class Author {
-//   fullName: String;
-//   email: String;
-// }
 
 @Component({
   selector: 'app-add-dialog',
@@ -32,7 +18,7 @@ export class AddDialogComponent implements OnInit {
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<AddDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
      private bookService: BookService, private router: Router,
-     private changeDetector: ChangeDetectorRef) { }
+     private changeDetector: ChangeDetectorRef, private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
     this.formdata
@@ -51,9 +37,10 @@ export class AddDialogComponent implements OnInit {
 
 addBook(data: any){
     this.bookService.addBook(data).subscribe(
-    resp => {
+    async resp => {
       this.dialogRef.close();
-      window.top?.location.reload();
+       this.snackbar.openSnackBarGood('Book Added', 'Hurray!')
+      window.setTimeout(function(){location.reload()},1500)
     }
   );
 }
