@@ -26,4 +26,8 @@ export class BookService {
   addBook(book: any){
     return this.http.post('http://localhost:8080/books/addBook',book);
   }
+
+  checkoutBook(isbn: any, book: any){
+    return this.http.put(`http://localhost:8080/books/isbn/${isbn}/checkout`,book)
+  }
 }
