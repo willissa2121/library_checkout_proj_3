@@ -4,26 +4,9 @@
     to access this pagae. From here, the admin can update a book's information, remove a book, or add a new book to the database.
 </p>
 
-<p style="font-weight: bold; color:red;">
-  Currently, the functionality on this page has not been implemented. The table is acting as a placeholder. This will need to be fixed
-  once after the backend is integrated.
-</p>
-
-<p>To add a new book, use this form</p>
-<table style="width:100%; border:1px solid black; text-align: center;">
-    <tr>
-        <th style="border:1px solid black; text-align: center; width: 25%;">Book</th>
-        <th style="border:1px solid black; text-align: center; width: 25%;">Author</th>
-        <th style="border:1px solid black; text-align: center; width: 25%;">Release Date</th>
-        <th style="border:1px solid black; text-align: center; width: 25%;">Add</th>
-      </tr>
-</table>
-<form action="">
-    <input type="text" id="title" name="title" style="width:25%">
-    <input type="text" id="author" name="author" style="width:24%">
-    <input type="text" id="releaseDate" name="releaseDate" style="width:25%">
-    <input type="submit" value="Add" style="width:24%">
-</form>
+<div >
+  <button mat-raised-button color="primary" (click)="openAddDialog()" >Add Book</button>
+</div>
 
 <p style="font-size: 24px;">To update exsisting records, use the table below.</p>
 <table style="width:100%; border:1px solid black; text-align: center;">

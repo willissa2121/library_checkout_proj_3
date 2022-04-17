@@ -1,1 +1,42 @@
-<p>add-dialog works!</p>
+
+
+
+<div class=" .border-register " >
+    <h1>Add Book</h1>
+    <form [formGroup] = "formdata" (ngSubmit) = "addBook(formdata.value)" >
+       <input type = "text" class = "fortextbox" name = "name" placeholder = "name" 
+          formControlName="name">
+       <br/>
+       <input type = "text" class = "fortextbox" name = "authorEmail" placeholder = "AuthorEmail" 
+       formControlName="authorEmail">
+    <br/>
+    <input type = "text" class = "fortextbox" name = "edition" placeholder = "Edition" 
+    formControlName="edition">
+ <br/>
+ <input type = "text" class = "fortextbox" name = "availability" placeholder = "Availability" 
+formControlName="availability">
+<br/>
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="expectedReturnDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> -->
+ <input type = "text" class = "fortextbox" name = "expectedReturnDate" placeholder = "ExpectedReturnDate(yyyy-mm-dd)" 
+ formControlName="expectedReturnDate">
+<br/>
+<input type = "text" class = "fortextbox" name = "isbn" placeholder = "ISBN" 
+formControlName="isbn">
+<br/>
+<input type = "text" class = "fortextbox" name = "fullName" placeholder = "Author FullName" 
+formControlName="fullName">
+<br/>
+<input type = "text" class = "fortextbox" name = "email" placeholder = "Author Email" 
+formControlName="email">
+<br/>
+
+<input type = "submit" class = "forsubmit" value = "Add">
+
+</form>
+</div>
