@@ -62,9 +62,7 @@
         <div *ngIf="canCheckout">
           <button mat-raised-button color="primary" (click)="checkOut(row.isbn, row)" >Checkout</button>
         </div>
-        <!-- cursor: not-allowed;
-        color: red;
-        pointer-events: none; -->
+
         <div *ngIf="!canCheckout">
           <button mat-raised-button style="cursor:not-allowed;color:red;pointer-events:none" >Checkout</button>
         </div>
