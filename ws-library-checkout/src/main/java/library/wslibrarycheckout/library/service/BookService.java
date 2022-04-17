@@ -5,6 +5,7 @@ import library.wslibrarycheckout.library.dao.BookRepository;
 import library.wslibrarycheckout.library.entity.Author;
 import library.wslibrarycheckout.library.entity.Book;
 import library.wslibrarycheckout.library.exceptionhandling.Response;
+import library.wslibrarycheckout.library.model.AddBookDTO;
 import library.wslibrarycheckout.library.model.BookDTO;
 import library.wslibrarycheckout.library.exceptionhandling.CannotBeFoundException;
 import library.wslibrarycheckout.library.model.BookUpdateResponseDTO;
@@ -26,14 +27,26 @@ public class BookService {
     @Autowired
     private AuthorRepository authorRepository;
 
-    public ResponseEntity<Object> addBook(Book book) {
+    public ResponseEntity<Object> addBook(AddBookDTO book) {
         Response<Book> resp;
         Set result = new HashSet();
 
-        authorRepository.save(book.getAuthor());
+        Author author = new Author();
+        author.setEmail(book.getAuthorEmail());
+        author.setFullName(book.getFullName());
+        authorRepository.save(author);
 
-        if(bookRepository.save(book) != null){
-            result.add(book);
+        Book b = new Book();
+        b.setAuthor(author);
+        b.setEdition(book.getEdition());
+        b.setExpectedReturnDate(book.getExpectedReturnDate());
+        b.setIsbn(book.getIsbn());
+        b.setName(book.getName());
+        b.setAvailability(book.getAvailability());
+        b.setAuthorEmail(book.getEmail());
+
+        if(bookRepository.save(b) != null){
+            result.add(b);
             resp = new Response<>("Book Added ", true, new Date(), HttpStatus.CREATED, result);
         } else {
             resp = new Response<>("Book could not be Added ", true, new Date(), HttpStatus.CREATED, result);

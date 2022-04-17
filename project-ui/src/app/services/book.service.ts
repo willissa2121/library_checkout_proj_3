@@ -20,7 +20,10 @@ export class BookService {
   }
 
   updateBook(isbn:any, book:any) {
-    console.log("this is book in service -->",JSON.stringify(book) )
     return this.http.put(`http://localhost:8080/books/isbn/${isbn}`,book);
+  }
+
+  addBook(book: any){
+    return this.http.post('http://localhost:8080/books/addBook',book);
   }
 }
