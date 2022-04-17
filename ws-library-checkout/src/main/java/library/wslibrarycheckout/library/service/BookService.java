@@ -4,6 +4,7 @@ import library.wslibrarycheckout.library.dao.AuthorRepository;
 import library.wslibrarycheckout.library.dao.BookRepository;
 import library.wslibrarycheckout.library.entity.Author;
 import library.wslibrarycheckout.library.entity.Book;
+import library.wslibrarycheckout.library.enumeration.Availability;
 import library.wslibrarycheckout.library.exceptionhandling.Response;
 import library.wslibrarycheckout.library.model.AddBookDTO;
 import library.wslibrarycheckout.library.model.BookDTO;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -129,5 +131,37 @@ public class BookService {
             throw new CannotBeFoundException("Book with id" + " "+ " cannot be found");
         }
         return bookUpdateResponseDTO;
+    }
+
+    public Book checkoutBook(String isbn, Book book) {
+        Optional<Book> mayBeBook = bookRepository.findByIsbn(isbn);
+
+        long millis=System.currentTimeMillis();
+        java.sql.Date sqlDate = new java.sql.Date(millis);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(sqlDate);
+        cal.setTime(sqlDate);
+        cal.add(Calendar.DAY_OF_YEAR,14);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        java.sql.Date newSqlDate = new java.sql.Date(cal.getTimeInMillis());
+
+
+
+
+        if(mayBeBook.isPresent()){
+            mayBeBook.get().setAvailability(Availability.CHECKEDOUT);
+            mayBeBook.get().setExpectedReturnDate(newSqlDate);
+            mayBeBook.get().setEdition(book.getEdition());
+
+            bookRepository.save(mayBeBook.get());
+            book.setAvailability(book.getAvailability());
+            book.setExpectedReturnDate(book.getExpectedReturnDate());
+        } else {
+            throw new CannotBeFoundException("Book with id" + " "+ " cannot be found");
+        }
+        return book;
     }
 }
