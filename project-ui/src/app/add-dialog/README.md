@@ -1,5 +1,5 @@
-# Location Component
-Component that will be used to show the location of our store (NOTE the store is IMAGINARY).
+# Add Dialog Component
+Component that is used when the user wishes to add a book to the backend. This will act as a modal for this applicaiton.
 
 ### Current Status
 -UI is updated to after the intergration of the backend

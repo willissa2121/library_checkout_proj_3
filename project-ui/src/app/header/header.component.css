@@ -89,3 +89,11 @@ div.header {
     color: inherit;
   }
   
+  topbaritem.button{
+    background-color: #7b1fa2;
+    color: #fff;
+    text-align: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }

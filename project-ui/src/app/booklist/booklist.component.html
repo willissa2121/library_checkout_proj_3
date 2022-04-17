@@ -1,10 +1,11 @@
-<h2>BearBook Book Catalog</h2>
+<h1>BearBook Book Catalog</h1>
 
 <p>View all books that currently are registerd to the database of BearBooks. For those who are registed, you can checkout the books
   you are interested in from this page.
 </p>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table style="width:96%; margin: auto; padding: 15px; text-align: center;">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="Book">
     <th mat-header-cell *matHeaderCellDef> Book </th>
@@ -39,4 +40,5 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </table>
