@@ -45,6 +45,7 @@ import { AddDialogComponent } from './add-dialog/add-dialog.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'catalogue', component: BooklistComponent},
+      {path: 'admin', component: AdminComponent}
     ]),
   ],
   providers: [],
