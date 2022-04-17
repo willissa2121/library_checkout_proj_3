@@ -118,6 +118,7 @@ export class AdminComponent implements OnInit {
     return this.bookService.updateBook(isbn, book).subscribe(resp =>{
       this.isEdit = false;
       this.allBooks = resp;
+      this.ngOnInit();
     })
   }
 

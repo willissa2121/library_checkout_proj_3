@@ -50,15 +50,10 @@ export class AddDialogComponent implements OnInit {
 });
 
 addBook(data: any){
-  
-  console.log("add dialog---->",data)
-  this.bookService.addBook(data).subscribe(
+    this.bookService.addBook(data).subscribe(
     resp => {
-      console.log("book added")
-      this.dialogRef.close
-      this.changeDetector.detectChanges
-      this.router.navigate(['/catalogue'])
-
+      this.dialogRef.close();
+      window.top?.location.reload();
     }
   );
 }
