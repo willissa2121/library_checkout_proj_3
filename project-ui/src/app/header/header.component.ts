@@ -24,5 +24,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogout(){
+   this.loginService.isUserLoggedIn.subscribe(resp =>{
+     localStorage.clear;
+   })
+  }
 
 }

@@ -3,6 +3,7 @@ package library.wslibrarycheckout.library.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import library.wslibrarycheckout.library.entity.Book;
+import library.wslibrarycheckout.library.model.AddBookDTO;
 import library.wslibrarycheckout.library.model.BookDTO;
 import library.wslibrarycheckout.library.model.BookUpdateResponseDTO;
 import library.wslibrarycheckout.library.service.BookService;
@@ -27,7 +28,7 @@ public class BookController {
 
     @PostMapping("/addBook")
     @ApiOperation(value = "Add operation to save books")
-    public ResponseEntity<Object> addBook(@RequestBody @Valid Book book){
+    public ResponseEntity<Object> addBook(@RequestBody @Valid AddBookDTO book){
 
       return  bookService.addBook(book);
     }

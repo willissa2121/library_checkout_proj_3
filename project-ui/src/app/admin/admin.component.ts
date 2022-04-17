@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, elementAt } from 'rxjs';
+import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 import { BookService } from '../services/book.service';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
@@ -74,6 +75,18 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
       width: '450px',
       data: {book},
+    });
+
+    console.log("data passed to dialog---->", dialogRef)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddDialogComponent, {
+      width: '450px',
     });
 
     console.log("data passed to dialog---->", dialogRef)
