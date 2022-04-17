@@ -1,8 +1,7 @@
 # Booklist Component
-Component that will be used to run the show a list of all books and there status in the database.
+Component that will be used to show a list of all books and there status in the database. This will work as a demonstration/check that the backend is running correctly along with a quick way for users to check if the book they want is available or even carried.
 
 ### Current Status
--UI is currently built, but the back end is not integrated yet
--Will neeed to remove red warning paragraph text before final sumbission
+-UI is updated to after the intergration of the backend
 
-Current Image of looks will be added to its own folder shortly
+Current Appearance of this component can be found within the UI Images folder under post backend integration.
