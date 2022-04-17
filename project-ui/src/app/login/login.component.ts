@@ -9,8 +9,6 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  
-  // form: FormGroup;
 
   constructor(private fb: FormBuilder, private loginService: LoginService) { 
   }
@@ -33,6 +31,7 @@ export class LoginComponent implements OnInit {
   registerUser(){
 
     this.loginService.registerUser(this.form.value)
+    this.form.reset();
   }
 
   login(){
