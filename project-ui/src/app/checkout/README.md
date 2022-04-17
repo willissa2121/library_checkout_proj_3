@@ -1,8 +1,7 @@
 # Checkout Component
-Component that will be used to checkout a book from the database and update its status
+Component that will be used to checkout a book from the database and update its status to show that it is no longer available. It should also be noted that the user must be signed in for this to work.
 
 ### Current Status
--UI is currently built, but the back end is not integrated yet
--Will neeed to remove red warning paragraph text before final sumbission
+-UI is updated to after the intergration of the backend
 
-Current Image of looks will be added to its own folder shortly
+Current Appearance of this component can be found within the UI Images folder under post backend integration.
