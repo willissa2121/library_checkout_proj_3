@@ -59,10 +59,9 @@ export class CheckoutComponent implements OnInit {
     
   ) {
     this.loginService.isUserLoggedIn.subscribe(resp =>{
-      console.log("login service")
       let userName = localStorage.getItem('userName');
       if( userName != null) {
-        this.canCheckout = !resp;
+        this.canCheckout = true;
       }
     })
   }
@@ -72,7 +71,6 @@ export class CheckoutComponent implements OnInit {
      this.bookService.getAllBooks().subscribe(res =>{
       let arr: any[] =[];
       arr.push(res);
-      console.log("checkout--->", arr);
       this.allBooks = res.filter(fil => fil.availability === 'AVAILABLE')
        this.dataSource = this.allBooks;
      })

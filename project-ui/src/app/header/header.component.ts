@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
       console.log("login service")
       this.userName = localStorage.getItem('userName');
       if( this.userName != null) {
+        resp = true;
         this.isLoggedIn = resp;
       }
     })
