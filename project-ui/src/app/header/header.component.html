@@ -17,8 +17,11 @@
         <div class="topbaritem" *ngIf="isLoggedIn">
           <!--Need to Fix Login Issue-->
         <a href="login" class="plainlink">
-          <img src="assets/white-down-triangle.png" style="float: right; margin-right:15px; margin-top: 12px;"/>
-          <span ><button type ="button" (click)="onLogout()">Logout</button></span><br/>
+          <!--<img src="assets/white-down-triangle.png" style="float: right; margin-right:15px; margin-top: 12px;"/>-->
+          <span ><button type ="button" (click)="onLogout()" style="background-color: #7b1fa2; color: #fff; 
+          text-align: center; font-family: Roboto, 'Helvetica Neue', sans-serif; font-size: 14px;font-weight: 500;
+          border-radius:4px; border-color:black;">
+            Logout</button></span><br/>
           <span >Welcome {{this.userName}}</span>
         </a>
       </div>

@@ -10,4 +10,7 @@ This also acts as a menu function that links to various parts of the website
     -Login/Sign up
 
 ### Current Status
--UI for component is complete and should not need much change moving forward
+-UI is updated to after the intergration of the backend as we Sign in or Logout will changed based on if the user is signed in or out at
+
+
+Current Appearance of this component can be found within the UI Images folder under post backend integration.
