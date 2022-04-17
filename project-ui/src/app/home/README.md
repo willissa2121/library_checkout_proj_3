@@ -2,6 +2,6 @@
 Component that will be used to act as a disclamer page for this app.
 
 ### Current Status
--UI is currently built and should not need much if any changes going forward.
+-UI is updated to after the intergration of the backend
 
-Current Image of looks will be added to its own folder shortly
+Current Appearance of this component can be found within the UI Images folder under post backend integration.

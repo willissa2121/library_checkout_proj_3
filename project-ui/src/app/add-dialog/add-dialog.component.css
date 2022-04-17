@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+    font-size: 24pt;
+    margin: auto;
+    width:98%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: yellow;
+    font-weight: bold;
+}
+p{
+    text-align:center;
+    margin: auto;
+    width:95%;
+    font-size: 12pt;
+}
+.container{
+    margin: auto;
+    width: 85%;
+}
+.fortextbox{
+    width:100%
+}
+.forsubmit{
+    display: flex;
+    margin: auto;
+}

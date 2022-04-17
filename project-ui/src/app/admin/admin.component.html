@@ -1,16 +1,16 @@
-<h2>Admin BearBook Book Catalog</h2>
+<h1>Admin BearBook Book Catalog</h1>
 
 <p>View all books that currently are registerd to the database of BearBooks. This page is to be used by the Admin's who have the privelleges
     to access this pagae. From here, the admin can update a book's information, remove a book, or add a new book to the database.
 </p>
 
-<div >
+<div style="text-align: center; padding: 15px 0px;">
   <button mat-raised-button color="primary" (click)="openAddDialog()" >Add Book</button>
 </div>
 
 <p style="font-size: 24px;">To update exsisting records, use the table below.</p>
-<table style="width:100%; border:1px solid black; text-align: center;">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%; border:1px solid black; text-align: center;">
+<table style="width:96%; margin: auto; padding: 15px; text-align: center;">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%; text-align: center;">
 
 
     <ng-container matColumnDef="Book">

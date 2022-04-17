@@ -1,13 +1,15 @@
-div.cloudtitletext {
+h1{
     text-align: center;
-}
-
-h2{
-    text-align: center;;
-}
-
-p{
+    font-size: 24pt;
+    margin: auto;
+    width:98%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  p{
     text-align:center;
-    width:auto;
-    margin:10px;
-}
+    margin: auto;
+    width:80%;
+    font-size: 12pt;
+    padding-bottom: 10px;;
+  }

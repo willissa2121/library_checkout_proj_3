@@ -1,8 +1,7 @@
 # Admin Component
-Component that will be used to run the add, update and remove functionality on books.
+Component that will be used as an admin component. This will be the location where the user will be able to add, update, or delete books from the backend. 
 
 ### Current Status
--UI is currently built, but the back end is not integrated yet
--Will neeed to remove red warning paragraph text before final sumbission
+-UI is updated to after the intergration of the backend
 
-Current Image of looks will be added to its own folder shortly
+Current Appearance of this component can be found within the UI Images folder under post backend integration.

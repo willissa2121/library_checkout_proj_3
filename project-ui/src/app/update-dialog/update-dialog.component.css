@@ -1,22 +1,27 @@
-::ng-deep .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: green !important;
-   }
-  
-   ::ng-deep.mat-form-field-underline {
-    /*change color of underline*/
-    background-color: green !important;
-  } 
-  
-  ::ng-deep.mat-form-field-ripple {
-   /*change color of underline when focused*/
-   background-color: green !important;;
-  }
-  
-  .border-register {
-    display: inline-block;
-      margin-top: -9px;
-      border: solid;
-      background-color: darkslategray;
-      width: 72%;
-  }
+h1{
+  text-align: center;
+  font-size: 24pt;
+  margin: auto;
+  width:98%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: yellow;
+  font-weight: bold;
+}
+p{
+  text-align:center;
+  margin: auto;
+  width:95%;
+  font-size: 12pt;
+}
+.container{
+    margin: auto;
+    width: 85%;
+}
+.fortextbox{
+    width:100%
+}
+.forsubmit{
+    display: flex;
+    margin: auto;
+}
