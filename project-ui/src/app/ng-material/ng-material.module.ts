@@ -15,6 +15,8 @@ import { MatCardModule } from '@angular/material/card';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
@@ -35,7 +37,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatButtonModule,
         MatCardModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatSnackBarModule
     ],
     schemas: [
       CUSTOM_ELEMENTS_SCHEMA

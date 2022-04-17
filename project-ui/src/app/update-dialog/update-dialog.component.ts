@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { BookService } from '../services/book.service';
+import { SnackbarService } from '../snackbar.service';
 
 
 export interface DialogData {
@@ -25,7 +26,7 @@ export class UpdateDialogComponent implements OnInit {
   availability: any
   isUpdated: any
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<UpdateDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private bookService: BookService, private router: Router) { 
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private bookService: BookService, private snackBar: SnackbarService) { 
     }
     
   ngOnInit(): void {
@@ -41,8 +42,11 @@ export class UpdateDialogComponent implements OnInit {
       availability: new FormControl(this.data.book.availability),
  });
 
-  updateBook(data:any){
-    return this.bookService.updateBook(data.isbn, data).subscribe(resp =>{
+  async updateBook(data:any){
+    return this.bookService.updateBook(data.isbn, data).subscribe(async resp =>{
+  
+     await this.snackBar.openSnackBarGood('Book Upated', 'Hurray!')
+
       this.dialogRef.close();
       window.top?.location.reload()
     })

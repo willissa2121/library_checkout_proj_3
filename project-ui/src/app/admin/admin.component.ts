@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, elementAt } from 'rxjs';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 import { BookService } from '../services/book.service';
+import { SnackbarService } from '../snackbar.service';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 @Component({
@@ -58,7 +59,7 @@ export class AdminComponent implements OnInit {
 ];
 
   constructor(
-    private bookService: BookService,  private changeDetectorRefs: ChangeDetectorRef, public dialog: MatDialog
+    private bookService: BookService,  private snackBar: SnackbarService, public dialog: MatDialog
     
   ) { 
   }
@@ -76,8 +77,6 @@ export class AdminComponent implements OnInit {
       width: '450px',
       data: {book},
     });
-
-    console.log("data passed to dialog---->", dialogRef)
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
@@ -88,8 +87,6 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(AddDialogComponent, {
       width: '450px',
     });
-
-    console.log("data passed to dialog---->", dialogRef)
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
@@ -105,6 +102,7 @@ export class AdminComponent implements OnInit {
   deleteBook(isbn:any) {
     console.log(JSON.stringify(isbn))
     return this.bookService.deleteBook(isbn).subscribe(res => {
+      this.snackBar.openSnackBarGood('Book Deleted', 'Nice!')
       this.ngOnInit();
     })
   }
@@ -119,6 +117,7 @@ export class AdminComponent implements OnInit {
       this.isEdit = false;
       this.allBooks = resp;
       this.ngOnInit();
+
     })
   }
 

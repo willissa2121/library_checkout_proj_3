@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { SnackbarService } from '../snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private snackBar: SnackbarService
   ) { }
 
  async registerUser(value: any){
@@ -21,12 +23,11 @@ export class LoginService {
     (response) => {
       let respJson = JSON.stringify(response);
       let respParseJson = JSON.parse(respJson);
-      alert(respParseJson.message[0])
+      this.snackBar.openSnackBarGood(respParseJson.message[0], 'Welcome')
     },
     (error) => {
       let errorObj = error.error
-      console.log(errorObj)
-      alert(errorObj.message);
+       this.snackBar.openSnackBarBad(errorObj.message, 'Try Again')
     }
    )
   }
@@ -39,14 +40,11 @@ export class LoginService {
         const session = localStorage.setItem("userName", value.userName);
         this.isUserLoggedIn.next(true);
         this.router.navigate(['/catalogue']);
-
-
-        alert(respParseJson.message[0])
+        this.snackBar.openSnackBarGood(respParseJson.message[0], 'Welcome!')
       },
       (error) => {
         let errorObj = error.error
-        console.log(errorObj)
-        alert(errorObj.message);
+        this.snackBar.openSnackBarBad(errorObj.message, 'Try Again')
       }
     )
   }
