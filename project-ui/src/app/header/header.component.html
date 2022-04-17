@@ -5,7 +5,7 @@
         <div class="topbaritem" style="font-size: 17pt;">
           <a [routerLink]="['checkout']" class="plainlink caps">Book Checkout</a>
         </div>
-        <div class="topbaritem" *ngIf="isLoggedIn">
+        <div class="topbaritem" *ngIf="!isLoggedIn">
             <!--Need to Fix Login Issue-->
           <a href="login" class="plainlink">
             <img src="assets/white-down-triangle.png" style="float: right; margin-right:15px; margin-top: 12px;"/>
@@ -14,11 +14,11 @@
           </a>
         </div>
 
-        <div class="topbaritem" *ngIf="!isLoggedIn">
+        <div class="topbaritem" *ngIf="isLoggedIn">
           <!--Need to Fix Login Issue-->
         <a href="login" class="plainlink">
           <img src="assets/white-down-triangle.png" style="float: right; margin-right:15px; margin-top: 12px;"/>
-          <span >LOGOUT</span><br/>
+          <span ><button type ="button" (click)="onLogout()">Logout</button></span><br/>
           <span >Welcome {{this.userName}}</span>
         </a>
       </div>
