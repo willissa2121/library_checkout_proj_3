@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 import { BookService } from '../services/book.service';
+import { LoginService } from '../services/login.service';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 @Component({
@@ -12,9 +13,10 @@ import { UpdateDialogComponent } from '../update-dialog/update-dialog.component'
 export class CheckoutComponent implements OnInit {
 
   dataSource: any;
-  displayedColumns: any =[];
-  allBooks: Object = []
+  displayedColumns: any[] =[];
+  allBooks: any = [];
   isEdit :any = false;
+  canCheckout: any = false;
   
 
  columnNames = [
@@ -52,17 +54,29 @@ export class CheckoutComponent implements OnInit {
 ];
 
   constructor(
-    private bookService: BookService,  private changeDetectorRefs: ChangeDetectorRef, public dialog: MatDialog
+    private bookService: BookService,  private changeDetectorRefs: ChangeDetectorRef, 
+    public dialog: MatDialog, private loginService: LoginService
     
-  ) { 
+  ) {
+    this.loginService.isUserLoggedIn.subscribe(resp =>{
+      console.log("login service")
+      let userName = localStorage.getItem('userName');
+      if( userName != null) {
+        this.canCheckout = !resp;
+      }
+    })
   }
 
   ngOnInit(): void {
     this.displayedColumns = this.columnNames.map(x => x.id);
      this.bookService.getAllBooks().subscribe(res =>{
-       this.allBooks = res;
+      let arr: any[] =[];
+      arr.push(res);
+      console.log("checkout--->", arr);
+      this.allBooks = res.filter(fil => fil.availability === 'AVAILABLE')
        this.dataSource = this.allBooks;
      })
+     this.isLoggedIn();
   }
 
   openDialog(book: any): void {
@@ -92,7 +106,6 @@ export class CheckoutComponent implements OnInit {
 
   getAllBooks() {
     return this.bookService.getAllBooks().subscribe(res =>{
-      this.allBooks = res
     })
   }
 
@@ -117,8 +130,16 @@ export class CheckoutComponent implements OnInit {
 
   checkOut(isbn: any, book: any){
     return this.bookService.checkoutBook(isbn, book).subscribe(resp =>{
-      console.log("checkout");
-      this.allBooks = resp;
+      let arr: any[] =[];
+      arr.push(resp);
+      this.ngOnInit();
     })
+  }
+
+  isLoggedIn(){
+    if(localStorage.getItem('userName') != null){
+      console.log("I am logged in")
+      this.canCheckout = true;
+    }
   }
 }
