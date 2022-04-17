@@ -39,7 +39,8 @@ addBook(data: any){
     this.bookService.addBook(data).subscribe(
     async resp => {
       this.dialogRef.close();
-      await window.top?.location.reload();
+       this.snackbar.openSnackBarGood('Book Added', 'Hurray!')
+      window.setTimeout(function(){location.reload()},1500)
     }
   );
 }

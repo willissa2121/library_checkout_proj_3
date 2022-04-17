@@ -48,7 +48,7 @@ export class UpdateDialogComponent implements OnInit {
      await this.snackBar.openSnackBarGood('Book Upated', 'Hurray!')
 
       this.dialogRef.close();
-      window.top?.location.reload()
+      window.setTimeout(function(){location.reload()},1500)
     })
 
 }
