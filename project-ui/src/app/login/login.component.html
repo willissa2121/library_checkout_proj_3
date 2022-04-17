@@ -1,76 +1,76 @@
-<h2 style="text-align: center;">Welcome to BearBooks</h2>
+<h1>Welcome to BearBooks</h1>
 
 <p>
   Welcome to the registration/login page. For existing users, you can sign in. For new users, you can create an account for the BearBooks system.
   We hope you enjoy the future books you will read.
 </p>
 
-<div class="row" style="width:auto; margin:auto; display:inline-flex">
+<div class="container">
+
+  <div >
+    <form [formGroup]="loginForm" #ngForm="ngForm" class="form-container width-1 border-register" appearance="outline" id="specific-border">
+      <p>Login</p>
+      <mat-card>
+
+        <mat-card-content>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="full-width">
+                <input formControlName="userName" matInput placeholder="UserName">
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="full-width">
+                <input formControlName="password" matInput placeholder="Password">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button (click)="login()" mat-raised-button color="primary" style="margin-bottom:5px;">Login</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </form>
+  </div>
+
 
 <div>
-  <form [formGroup]="loginForm" #ngForm="ngForm" class="form-container width-1 border-register" appearance="outline" id="specific-border">
-    <p>Login</p>
+  <form [formGroup]="form" #ngForm="ngForm" class="form-container width-1 border-register" appearance="outline" id="specific-border">
+    <p>Register Here</p>
     <mat-card>
-  
+
       <mat-card-content>
         <div class="row">
           <div class="col-md-6">
             <mat-form-field class="full-width">
-              <input formControlName="userName" matInput placeholder="UserName">
+              <input formControlName="email" matInput placeholder="Email">
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field class="full-width">
-              <input formControlName="password" matInput placeholder="Password">
+              <input formControlName="userName" matInput placeholder="user name">
             </mat-form-field>
           </div>
 
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <input formControlName="password" matInput placeholder="password">
+            </mat-form-field>
+          </div>
         </div>
-  
+
       </mat-card-content>
-  
+
       <mat-card-actions>
-        <button (click)="login()" mat-raised-button color="primary">Login</button>
+        <button (click)="registerUser()" mat-raised-button color="primary" style="margin-bottom:5px;">Register</button>
       </mat-card-actions>
-  
+
     </mat-card>
   </form>
-  </div>
-  
-
-<div>
-<form [formGroup]="form" #ngForm="ngForm" class="form-container width-1 border-register" appearance="outline" id="specific-border">
-  <p>Register Here</p>
-  <mat-card>
-
-    <mat-card-content>
-      <div class="row">
-        <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="email" matInput placeholder="Email">
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="userName" matInput placeholder="user name">
-          </mat-form-field>
-        </div>
-
-        <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="password" matInput placeholder="password">
-          </mat-form-field>
-        </div>
-      </div>
-
-    </mat-card-content>
-
-    <mat-card-actions>
-      <button (click)="registerUser()" mat-raised-button color="primary">Register</button>
-    </mat-card-actions>
-
-  </mat-card>
-</form>
 </div>
 
 
