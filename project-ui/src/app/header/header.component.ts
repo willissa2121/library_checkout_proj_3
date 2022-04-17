@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -11,12 +11,14 @@ export class HeaderComponent implements OnInit {
   isLoggedIn:any = false;
   userName: any 
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private changeDetector: ChangeDetectorRef) {
 
     this.loginService.isUserLoggedIn.subscribe(resp =>{
       console.log("login service")
-      this.isLoggedIn = resp;
       this.userName = localStorage.getItem('userName');
+      if( this.userName != null) {
+        this.isLoggedIn = resp;
+      }
     })
 
    }
@@ -25,9 +27,17 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout(){
-   this.loginService.isUserLoggedIn.subscribe(resp =>{
-     localStorage.clear;
-   })
+    localStorage.clear();
+    this.isLoggedIn = true;
+    this.changeDetector.detectChanges()
+    //this.ngOnInit();
+  //  this.loginService.isUserLoggedIn.subscribe(resp =>{
+  //    localStorage.clear();
+  //    this.isLoggedIn = true;
+  //    this.changeDetector.detectChanges();
+
+  //    this.ngOnInit();
+  //  })
   }
 
 }

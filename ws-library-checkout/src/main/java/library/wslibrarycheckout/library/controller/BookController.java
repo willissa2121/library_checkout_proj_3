@@ -75,4 +75,11 @@ public class BookController {
     public BookUpdateResponseDTO updateBookByIsbn(@PathVariable("id") String isbn, @RequestBody BookUpdateResponseDTO book){
         return bookService.updateBookByIsbn(isbn, book);
     }
+
+    @ApiOperation(value = "Book Checkout API  ")
+    @PutMapping("isbn/{id}/checkout")
+    public Book checkoutBook(@PathVariable("id") String isbn, @RequestBody Book book){
+        return bookService.checkoutBook(isbn, book);
+    }
+    
 }
