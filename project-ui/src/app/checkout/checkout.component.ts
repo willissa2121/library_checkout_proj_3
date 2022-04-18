@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 import { BookService } from '../services/book.service';
 import { LoginService } from '../services/login.service';
+import { SnackbarService } from '../snackbar.service';
 import { UpdateDialogComponent } from '../update-dialog/update-dialog.component';
 
 @Component({
@@ -17,7 +18,7 @@ export class CheckoutComponent implements OnInit {
   allBooks: any = [];
   isEdit :any = false;
   canCheckout: any = false;
-  
+   user: string = '';
 
  columnNames = [
    {
@@ -54,7 +55,7 @@ export class CheckoutComponent implements OnInit {
 ];
 
   constructor(
-    private bookService: BookService,  private changeDetectorRefs: ChangeDetectorRef, 
+    private bookService: BookService,  private snackBar: SnackbarService, 
     public dialog: MatDialog, private loginService: LoginService
     
   ) {
@@ -83,7 +84,6 @@ export class CheckoutComponent implements OnInit {
       data: {book},
     });
 
-    console.log("data passed to dialog---->", dialogRef)
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
@@ -94,8 +94,6 @@ export class CheckoutComponent implements OnInit {
     const dialogRef = this.dialog.open(AddDialogComponent, {
       width: '450px',
     });
-
-    console.log("data passed to dialog---->", dialogRef)
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
@@ -127,16 +125,18 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkOut(isbn: any, book: any){
+
+    let userName = localStorage.getItem('userName');
     return this.bookService.checkoutBook(isbn, book).subscribe(resp =>{
       let arr: any[] =[];
       arr.push(resp);
+      this.snackBar.openSnackBarGood('Book Checked out by:', JSON.stringify(userName))
       this.ngOnInit();
     })
   }
 
   isLoggedIn(){
     if(localStorage.getItem('userName') != null){
-      console.log("I am logged in")
       this.canCheckout = true;
     }
   }
