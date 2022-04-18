@@ -44,7 +44,7 @@ export class LoginService {
       },
       (error) => {
         let errorObj = error.error
-        this.snackBar.openSnackBarBad(errorObj.message, 'Try Again')
+        this.snackBar.openSnackBarBad('Invalid Credential', 'Try Again')
       }
     )
   }
