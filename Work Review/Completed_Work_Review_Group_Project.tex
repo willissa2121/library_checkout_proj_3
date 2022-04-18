@@ -1,0 +1,241 @@
+% The first argument is the \documentclass, which tells latex which template
+% we're using to build this document. It's usually safe to just use "article".
+\documentclass{article}
+
+% include some packages...
+\usepackage{fullpage} % change settings for a smaller margin
+\usepackage{graphicx} % gives access to the \includegraphics command
+\usepackage{hyperref} % gives the ability to href links
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+\urlstyle{same}
+
+% tell Latex to use no paragraph indentation, but leave some space between
+% paragraphs 
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.1in}
+
+% these commands merely set the values for the title/date/author; they don't put
+% them in the document... see \maketitle below
+\title{Group Project (Work Complete and Review)}
+\date{4/16/2022}
+\author{Created by: Preston Kelly email: preston\_kelly1@baylor.edu \\
+	Reviewed by: Subash Kharel email: subash\_kharel2@baylor.edu \\
+	Reviewed by: Scott Willis email: scott\_willis1@baylor.edu
+}
+
+% all document content goes between \begin{document} and \end{document}
+\begin{document}
+	
+	% this command actually creates the title/date/author in the document
+	\maketitle
+	
+	This document will be used to report the work completed, the hours spent, and by whom in the group completed the work. This will also state the amount of git commits for the project, and individual, within our final repository.
+	
+	
+	
+	\section{Overview of the Final Git Repository}
+	
+	The final repository that was used for application can be found \href{https://github.com/willissa2121/library_checkout_proj_3}{here}. However, it should be noted that we relocated to this location due to become highly disorganized in our previous used repositories which can be found \href{https://github.com/willissa2121/library_checkout_proj_2}{here} and \href{https://github.com/willissa2121/library_checkout_proj}{here}. If you are reading this as a printed out document, there will be a resources section that will have a list of these and any other urls used in this document.\\
+	
+	In Table 1, you can see the overall information regarding the history of our git repository. Please note, when it comes to the amount of git commits, we will only be referring to the commits done within the final repository. This is due to the fact hat most of our work was done within this repository itself. This information is accurate as of 4/16/2022. \\
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c c ||} 
+			\hline
+			Category & Values \\ [0.5ex] 
+			\hline\hline
+			Number of Members & 3 \\
+			Issues Completed & 52  \\ 
+			Git Commits & 118 and counting \\
+			Hours Worked & 89 \\
+			\hline
+		\end{tabular}
+		\caption{Overview of tasks, git commits, and hours worked.}
+		\label{table:1}
+	\end{table}
+	
+	For a more detailed break down that includes the number of issues worked on, the amount of individual commits, and individual hours worked please continue on individual sections below.
+	
+	\section{Individual Work}
+	
+	This section of the report will be dedicated to breaking down the information that was provided within Table 1. However, in this case, the information will be given for each contributor/member who participated on this project. Please note, the git commit numbers will only reflect the numbers that were submitted within our final repository.
+	
+	\subsection{Preston Kelly's Contribution}
+	
+	This section will break down the work completed by Preston Kelly, the amount git commits in the final repository, and the amount of time spent working on this project overall. Table 2 will document this information. 
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c c ||} 
+			\hline
+			Category & Values \\ [0.5ex] 
+			\hline\hline
+			Issues Responsible For & 20  \\ 
+			Git Commits & 41 and counting \\
+			Hours Worked & 33 \\
+			\hline
+		\end{tabular}
+		\caption{Overview of Issues Responsible for, git commits, and hours worked for Preston Kelly.}
+		\label{table:2}
+	\end{table}
+	
+	For a more deleted breakdown of the work that Preston Kelly was responsible for, please view Table 3. Please note, these are the issues that Preston Kelly was responsible for. This list does not include reviewing the work of the other team members or any help they might of contributed to that work.
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c ||} 
+			\hline
+			Assigned Tasks  \\ [0.5ex] 
+			\hline\hline
+			Add Book System Sequence Diagrams (SSD)  \\
+			Remove Book SSD  \\
+			Search Author SSD \\
+			Search Title SSD \\
+			User Creation SSD \\
+			Original Use Cases Iteration 1 \\
+			Project Wire frames \\
+			Add Book Sequence Diagrams (SD) Iteration 2 \\
+			Login SD Iteration 2 \\
+			Remove Book SD iteration 2 \\
+			Update Book SD iteration 2 \\
+			Creation of Front end UI \\ 
+			Update to Use Cases Iteration 3 \\
+			Porting Old Documents to Final Repository \\
+			Updating CSS after Back end Integration \\
+			Recording Use Case Demo Videos \\
+			Recording Project Presentation Video \\
+			Recording Working Demonstration \\
+			Final Documentation of Project Information \\
+			Final Work Review Compilation \\
+			\hline
+		\end{tabular}
+		\caption{Breakdown of Tasks assigned to Preston Kelly.}
+		\label{table:3}
+	\end{table}
+	
+	\subsection{Subash Kharel's Contribution}
+	
+	This section will break down the work completed by Subash Kharel, the amount git commits in the final repository, and the amount of time spent working on this project overall. Table 4 will document this information. 
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c c ||} 
+			\hline
+			Category & Values \\ [0.5ex] 
+			\hline\hline
+			Issues Responsible For & 18  \\ 
+			Git Commits & 49 and counting \\
+			Hours Worked & 31 \\
+			\hline
+		\end{tabular}
+		\caption{Overview of Issues Responsible for, git commits, and hours worked for Subash Kharel.}
+		\label{table:4}
+	\end{table}
+	\vspace{2cm} 
+	For a more deleted breakdown of the work that Subash Kharel was responsible for, please view Table 5. Please note, these are the issues that Subash Kharel was responsible for. This list does not include reviewing the work of the other team members or any help they might of contributed to that work.
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c ||} 
+			\hline
+			Assigned Tasks \\ [0.5ex] 
+			\hline\hline
+			Domain Model \\
+			Unified Modeling Language (UML) Class Diagram Iteration 1 \\
+			UML Case Class Diagram Iteration 1 \\
+			API Model (Swagger) Iteration 2 \\
+			Grasp Documentation Iteration 2 \\
+			UML Diagram Iteration 2 \\
+			UML Class Diagram Iteration 2 \\
+			UML Case Class Diagram Iteration 2 \\
+			Creation of Backend Crud Operations 2-3\\
+			Implementation of Backend Operations with UI 3\\
+			Creation of  all angular services 3\\
+			Creation of all angular modals 3\\
+			Modification of all angular components on the skeleton 3\\
+			Addition of all necessary modules and routes for ui 3\\
+			Implementation of Login services on both UI and webservices 3\\
+			Addition validation on all services 3\\
+			Addition of snackbars for UI notifications 3\\
+			Addition of session storage for logged in users 3\\
+			
+			\hline
+		\end{tabular}
+		\caption{Breakdown of Tasks assigned to Subash Kharel.}
+		\label{table:5}
+	\end{table}
+	
+	\subsection{Scott Willis's Contribution}
+	
+	This section will break down the work completed by Scott Willis, the amount git commits in the final repository, and the amount of time spent working on this project overall. Table 6 will document this information. 
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c c ||} 
+			\hline
+			Category & Values \\ [0.5ex] 
+			\hline\hline
+			Issues Responsible For & 28  \\ 
+			Git Commits & 4 and counting \\
+			Hours Worked & 25 \\
+			\hline
+		\end{tabular}
+		\caption{Overview of Issues Responsible for, git commits, and hours worked for Scott Willis.}
+		\label{table:6}
+	\end{table}
+	
+	For a more deleted breakdown of the work that Scott Willis was responsible for, please view Table 5. Please note, these are the issues that Scott Willis was responsible for. This list does not include reviewing the work of the other team members or any help they might of contributed to that work.
+	
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{||c ||} 
+			\hline
+			Assigned Tasks \\ [0.5ex] 
+			\hline\hline
+			Initializing Repository 1 \\
+			Gant Chart Iteration 1 \\
+			Tasks and Hours Iteration 1 \\
+			System Operations and Contracts Iteration 1 \\
+			Project Vision and Requirements \\
+			Initializing Repository 2 \\
+			Gant Chart Iteration 2 \\
+			Initialization of Repository 3 \\
+			Customer/User Guide Creation \\
+			DevOps Guide Creation \\ 
+			Gant Chart Iteration 3 \\
+			Component Diagram \\
+			Deployment Diagram \\
+			Package Diagram \\   
+			\hline
+		\end{tabular}
+		\caption{Breakdown of Tasks assigned to Scot Willis.}
+		\label{table:7}
+	\end{table}
+	\vspace{2cm} 
+	\section{Resources}
+	
+	This section will work as a living resource for various links that we are using for our project and to work as a written link if this pdf is being read as a physical copy instead of a digital one. Below are the links that we reference in this paper.
+	
+	\textbf{The url for the final repository is as follows:}
+	\begin{verbatim}
+		https://github.com/willissa2121/library_checkout_proj_3
+	\end{verbatim}
+	\textbf{The url for the second repository is as follows:}
+	\begin{verbatim}
+		https://github.com/willissa2121/library_checkout_proj_2
+	\end{verbatim}
+	\textbf{The url for the first repository is as follows:}
+	\begin{verbatim}
+		https://github.com/willissa2121/library_checkout_proj
+	\end{verbatim}
+	
+\end{document}
+
