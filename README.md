@@ -8,9 +8,19 @@ Preston Kelly <br>
 Subash Kharel <br>
 Scott Willis <br>
 
-#### Project Concept
+##### Work Breakdown by Contributor
+
+To see the breakdown of the work to an individual level, that can be seen [here](https://tinyurl.com/2p9f8js9)
+
+### Project Comprehensive Breakdown
+
+To see the complete breakdown of the final project, you can find that [here](https://tinyurl.com/2p8mzkm3)
+
+
+#### Project Concepts
 
 The concept for our project was to create a functional protoype that would be able to function as application to help a fictional library to help allow registerion of new user and allow for said users to checkout books from the library. Alongside this, the app will also allow for those with admin privilleges to add, update, and remove books from the rooster of books available from the fictional library.
+
 
 ### Project Requirements
 ##### Project Specifications
